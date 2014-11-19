@@ -1,0 +1,799 @@
+stdClass Object
+(
+    [ns1:AmplifyResponse] => stdClass Object
+        (
+            [AmplifyReturn] => stdClass Object
+                (
+                    [Topics] => stdClass Object
+                        (
+                            [Domains] => 
+                            [TopTopics] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [Topic] => stdClass Object
+                                                (
+                                                    [Name] => #random
+                                                    [Value] => 8
+                                                )
+
+                                            [NamedEntityType] => 
+                                            [TopicInstance] => stdClass Object
+                                                (
+                                                    [Result] => stdClass Object
+                                                        (
+                                                            [Name] => #random
+                                                            [Value] => 8
+                                                        )
+
+                                                )
+
+                                            [Polarity] => stdClass Object
+                                                (
+                                                    [Min] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Mean] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Max] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                )
+
+                                            [OfferingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => Not At All
+                                                    [Value] => 1
+                                                )
+
+                                            [RequestingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => To Some Extent
+                                                    [Value] => 2
+                                                )
+
+                                        )
+
+                                    [1] => stdClass Object
+                                        (
+                                            [Topic] => stdClass Object
+                                                (
+                                                    [Name] => grandparent
+                                                    [Value] => 5
+                                                )
+
+                                            [NamedEntityType] => 
+                                            [TopicInstance] => stdClass Object
+                                                (
+                                                    [Result] => stdClass Object
+                                                        (
+                                                            [Name] => grandparent
+                                                            [Value] => 5
+                                                        )
+
+                                                )
+
+                                            [Polarity] => stdClass Object
+                                                (
+                                                    [Min] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Mean] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Max] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                )
+
+                                            [OfferingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => Not At All
+                                                    [Value] => 1
+                                                )
+
+                                            [RequestingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => A Lot
+                                                    [Value] => 3
+                                                )
+
+                                        )
+
+                                    [2] => stdClass Object
+                                        (
+                                            [Topic] => stdClass Object
+                                                (
+                                                    [Name] => Xmas
+                                                    [Value] => 4
+                                                )
+
+                                            [NamedEntityType] => Array
+                                                (
+                                                    [0] => stdClass Object
+                                                        (
+                                                            [Name] => Type
+                                                            [Value] => NamedEntity
+                                                        )
+
+                                                    [1] => stdClass Object
+                                                        (
+                                                            [Name] => SubType
+                                                            [Value] => unknown
+                                                        )
+
+                                                )
+
+                                            [TopicInstance] => stdClass Object
+                                                (
+                                                    [Result] => stdClass Object
+                                                        (
+                                                            [Name] => Xmas
+                                                            [Value] => 4
+                                                        )
+
+                                                )
+
+                                            [Polarity] => stdClass Object
+                                                (
+                                                    [Min] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Mean] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Max] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                )
+
+                                            [OfferingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => Not At All
+                                                    [Value] => 1
+                                                )
+
+                                            [RequestingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => A Lot
+                                                    [Value] => 3
+                                                )
+
+                                        )
+
+                                )
+
+                            [ProperNouns] => stdClass Object
+                                (
+                                    [TopicResult] => stdClass Object
+                                        (
+                                            [Topic] => stdClass Object
+                                                (
+                                                    [Name] => Xmas
+                                                    [Value] => 4
+                                                )
+
+                                            [NamedEntityType] => Array
+                                                (
+                                                    [0] => stdClass Object
+                                                        (
+                                                            [Name] => Type
+                                                            [Value] => NamedEntity
+                                                        )
+
+                                                    [1] => stdClass Object
+                                                        (
+                                                            [Name] => SubType
+                                                            [Value] => unknown
+                                                        )
+
+                                                )
+
+                                            [TopicInstance] => stdClass Object
+                                                (
+                                                    [Result] => stdClass Object
+                                                        (
+                                                            [Name] => Xmas
+                                                            [Value] => 4
+                                                        )
+
+                                                )
+
+                                            [Polarity] => stdClass Object
+                                                (
+                                                    [Min] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Mean] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Max] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                )
+
+                                            [OfferingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => Not At All
+                                                    [Value] => 1
+                                                )
+
+                                            [RequestingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => A Lot
+                                                    [Value] => 3
+                                                )
+
+                                        )
+
+                                )
+
+                            [Locations] => 
+                        )
+
+                    [Actions] => stdClass Object
+                        (
+                            [TopActions] => stdClass Object
+                                (
+                                    [ActionResult] => stdClass Object
+                                        (
+                                            [Action] => stdClass Object
+                                                (
+                                                    [Name] => get my  grandparents
+                                                    [Value] => 2
+                                                )
+
+                                            [ActionType] => stdClass Object
+                                                (
+                                                    [Result] => stdClass Object
+                                                        (
+                                                            [Name] => other
+                                                            [Value] => 1
+                                                        )
+
+                                                )
+
+                                            [Decisiveness] => stdClass Object
+                                                (
+                                                    [Name] => Medium
+                                                    [Value] => 2.5
+                                                )
+
+                                            [TemporalityResult] => stdClass Object
+                                                (
+                                                    [Temporality] => stdClass Object
+                                                        (
+                                                            [Name] => NA
+                                                            [Value] => 0
+                                                        )
+
+                                                )
+
+                                            [OfferingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => Not At All
+                                                    [Value] => 1
+                                                )
+
+                                            [RequestingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => A Lot
+                                                    [Value] => 3
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [TopicIntentions] => stdClass Object
+                        (
+                            [Domains] => 
+                            [TopTopics] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [Topic] => stdClass Object
+                                                (
+                                                    [Name] => #random
+                                                    [Value] => 8
+                                                )
+
+                                            [NamedEntityType] => 
+                                            [TopicInstance] => stdClass Object
+                                                (
+                                                    [Result] => stdClass Object
+                                                        (
+                                                            [Name] => #random
+                                                            [Value] => 8
+                                                        )
+
+                                                )
+
+                                            [Polarity] => stdClass Object
+                                                (
+                                                    [Min] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Mean] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Max] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                )
+
+                                            [OfferingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => Not At All
+                                                    [Value] => 1
+                                                )
+
+                                            [RequestingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => To Some Extent
+                                                    [Value] => 2
+                                                )
+
+                                            [TopicIntention] => 
+                                        )
+
+                                    [1] => stdClass Object
+                                        (
+                                            [Topic] => stdClass Object
+                                                (
+                                                    [Name] => grandparent
+                                                    [Value] => 5
+                                                )
+
+                                            [NamedEntityType] => 
+                                            [TopicInstance] => stdClass Object
+                                                (
+                                                    [Result] => stdClass Object
+                                                        (
+                                                            [Name] => grandparent
+                                                            [Value] => 5
+                                                        )
+
+                                                )
+
+                                            [Polarity] => stdClass Object
+                                                (
+                                                    [Min] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Mean] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Max] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                )
+
+                                            [OfferingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => Not At All
+                                                    [Value] => 1
+                                                )
+
+                                            [RequestingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => A Lot
+                                                    [Value] => 3
+                                                )
+
+                                            [TopicIntention] => 
+                                        )
+
+                                    [2] => stdClass Object
+                                        (
+                                            [Topic] => stdClass Object
+                                                (
+                                                    [Name] => Xmas
+                                                    [Value] => 4
+                                                )
+
+                                            [NamedEntityType] => Array
+                                                (
+                                                    [0] => stdClass Object
+                                                        (
+                                                            [Name] => Type
+                                                            [Value] => NamedEntity
+                                                        )
+
+                                                    [1] => stdClass Object
+                                                        (
+                                                            [Name] => SubType
+                                                            [Value] => unknown
+                                                        )
+
+                                                )
+
+                                            [TopicInstance] => stdClass Object
+                                                (
+                                                    [Result] => stdClass Object
+                                                        (
+                                                            [Name] => Xmas
+                                                            [Value] => 4
+                                                        )
+
+                                                )
+
+                                            [Polarity] => stdClass Object
+                                                (
+                                                    [Min] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Mean] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Max] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                )
+
+                                            [OfferingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => Not At All
+                                                    [Value] => 1
+                                                )
+
+                                            [RequestingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => A Lot
+                                                    [Value] => 3
+                                                )
+
+                                            [TopicIntention] => 
+                                        )
+
+                                )
+
+                            [ProperNouns] => stdClass Object
+                                (
+                                    [TopicIntentionResult] => stdClass Object
+                                        (
+                                            [Topic] => stdClass Object
+                                                (
+                                                    [Name] => Xmas
+                                                    [Value] => 4
+                                                )
+
+                                            [NamedEntityType] => Array
+                                                (
+                                                    [0] => stdClass Object
+                                                        (
+                                                            [Name] => Type
+                                                            [Value] => NamedEntity
+                                                        )
+
+                                                    [1] => stdClass Object
+                                                        (
+                                                            [Name] => SubType
+                                                            [Value] => unknown
+                                                        )
+
+                                                )
+
+                                            [TopicInstance] => stdClass Object
+                                                (
+                                                    [Result] => stdClass Object
+                                                        (
+                                                            [Name] => Xmas
+                                                            [Value] => 4
+                                                        )
+
+                                                )
+
+                                            [Polarity] => stdClass Object
+                                                (
+                                                    [Min] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Mean] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                    [Max] => stdClass Object
+                                                        (
+                                                            [Name] => Neutral
+                                                            [Value] => 0
+                                                        )
+
+                                                )
+
+                                            [OfferingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => Not At All
+                                                    [Value] => 1
+                                                )
+
+                                            [RequestingGuidance] => stdClass Object
+                                                (
+                                                    [Name] => A Lot
+                                                    [Value] => 3
+                                                )
+
+                                            [TopicIntention] => 
+                                        )
+
+                                )
+
+                            [Locations] => 
+                        )
+
+                    [Demographics] => stdClass Object
+                        (
+                            [Age] => stdClass Object
+                                (
+                                    [Name] => Senior
+                                    [Value] => 0.08
+                                )
+
+                            [Gender] => stdClass Object
+                                (
+                                    [Name] => Neutral
+                                    [Value] => 0
+                                )
+
+                            [Education] => stdClass Object
+                                (
+                                    [Name] => Pre-Secondary
+                                    [Value] => 1
+                                )
+
+                            [Language] => stdClass Object
+                                (
+                                    [Name] => Undecided
+                                    [Value] => 0
+                                )
+
+                        )
+
+                    [Styles] => stdClass Object
+                        (
+                            [Polarity] => stdClass Object
+                                (
+                                    [Min] => stdClass Object
+                                        (
+                                            [Name] => Neutral
+                                            [Value] => 0
+                                        )
+
+                                    [Mean] => stdClass Object
+                                        (
+                                            [Name] => Neutral
+                                            [Value] => 0
+                                        )
+
+                                    [Max] => stdClass Object
+                                        (
+                                            [Name] => Neutral
+                                            [Value] => 0
+                                        )
+
+                                )
+
+                            [OfferingGuidance] => stdClass Object
+                                (
+                                    [Name] => Not At All
+                                    [Value] => 1
+                                )
+
+                            [RequestingGuidance] => stdClass Object
+                                (
+                                    [Name] => A Lot
+                                    [Value] => 3
+                                )
+
+                            [Decisiveness] => stdClass Object
+                                (
+                                    [Name] => Medium
+                                    [Value] => 2.5
+                                )
+
+                            [TemporalityResult] => stdClass Object
+                                (
+                                    [Temporality] => stdClass Object
+                                        (
+                                            [Name] => NA
+                                            [Value] => 0
+                                        )
+
+                                )
+
+                            [Slang] => stdClass Object
+                                (
+                                    [Name] => No Slang
+                                    [Value] => 0
+                                )
+
+                            [Flamboyance] => stdClass Object
+                                (
+                                    [Name] => Not Flamboyant
+                                    [Value] => 1
+                                )
+
+                            [Contrast] => stdClass Object
+                                (
+                                    [Name] => Not At All
+                                    [Value] => 0
+                                )
+
+                        )
+
+                    [Search] => 
+                    [RequestInfo] => stdClass Object
+                        (
+                            [RequestID] => 567f865f-2ac1-4544-bcf7-15239179d0c5
+                            [paramList] => Array
+                                (
+                                    [0] => stdClass Object
+                                        (
+                                            [Name] => ipaddress
+                                            [Value] => 10.215.105.67
+                                        )
+
+                                    [1] => stdClass Object
+                                        (
+                                            [Name] => analysis
+                                            [Value] => all
+                                        )
+
+                                    [2] => stdClass Object
+                                        (
+                                            [Name] => formatrequest
+                                            [Value] => json
+                                        )
+
+                                    [3] => stdClass Object
+                                        (
+                                            [Name] => cache
+                                            [Value] => enable
+                                        )
+
+                                    [4] => stdClass Object
+                                        (
+                                            [Name] => polarityProcess
+                                            [Value] => chunked
+                                        )
+
+                                    [5] => stdClass Object
+                                        (
+                                            [Name] => optimiseresptime
+                                            [Value] => enable
+                                        )
+
+                                    [6] => stdClass Object
+                                        (
+                                            [Name] => maxTopicResults
+                                            [Value] => 0
+                                        )
+
+                                    [7] => stdClass Object
+                                        (
+                                            [Name] => maxActionResults
+                                            [Value] => 0
+                                        )
+
+                                    [8] => stdClass Object
+                                        (
+                                            [Name] => sortOrder
+                                            [Value] => 
+                                        )
+
+                                    [9] => stdClass Object
+                                        (
+                                            [Name] => spiderrequest
+                                            [Value] => N
+                                        )
+
+                                    [10] => stdClass Object
+                                        (
+                                            [Name] => ampliverseID
+                                            [Value] => 
+                                        )
+
+                                    [11] => stdClass Object
+                                        (
+                                            [Name] => scoring
+                                            [Value] => 
+                                        )
+
+                                    [12] => stdClass Object
+                                        (
+                                            [Name] => textsizestripped
+                                            [Value] => 55
+                                        )
+
+                                    [13] => stdClass Object
+                                        (
+                                            [Name] => textsizeunstripped
+                                            [Value] => 55
+                                        )
+
+                                )
+
+                            [Version] => stdClass Object
+                                (
+                                    [VersionNumber] => 2.1
+                                    [BuildDate] => Jun 16 2011
+                                )
+
+                        )
+
+                )
+
+        )
+
+)

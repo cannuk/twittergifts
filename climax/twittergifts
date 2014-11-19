@@ -1,0 +1,494 @@
+#!/usr/bin/env php
+<?php
+/* vim: set syntax=php expandtab tabstop=4 shiftwidth=4: */
+/**
+ * Created by CLImax http://github.com/apinstein/climax
+ * Thu, 03 Nov 2011 10:17:47 -0600
+ */
+
+const ROOT_PATH = "";//"/cron/twittergifts/climax/";
+//error_reporting(0);
+
+require_once "CLImax.php";
+require_once ROOT_PATH . "../twitter-async/EpiCurl.php";
+require_once ROOT_PATH . "../twitter-async/EpiSequence.php";
+require_once ROOT_PATH . "../twitter-async/EpiOAuth.php";
+require_once ROOT_PATH . "../twitter-async/EpiTwitter.php";
+require_once ROOT_PATH . "../Underscore.php";
+require_once ROOT_PATH . "../Pronoun.php";
+require_once ROOT_PATH . "../TweetReply.php";
+
+$consumerKey = 'hdDhKxy3GsaIQwcG8xHw';
+$consumerSecret = 'DQx4kb8g3ZZpfCWWslkKDEoc0w0oRmqliJnaO9XHZCU';
+$oauthToken = '402936128-yWvUguKyKGU9fSbxA5XW2U2POMeM1NiBGOCMcw9U';
+$oauthSecret = 'u1Sqg41b3CJGS9srCKXHhGCH4IWu3XUIEJqKNi06Q';
+
+$amplifyKey = 'dur25g8ba3v3qgfb4gdvzrcqr8bz6ex5';
+
+
+class CLImaxSampleCommand extends CLIMax_BaseCommand
+{
+    public function run($arguments, CLImaxController $cliController)
+    {
+        // do something interesting
+        print "Sample...\n";
+        // or throw new Exception("error", $returnCode);
+        return 0;
+    }
+}
+
+class CLImaxGetQuestionsCommand extends CLIMax_BaseCommand
+{
+	const ROOT_PATH = "/cron/twittergifts/climax/";
+	private $processedTweets = array();
+	private $relationships;
+	private $events;
+	private $pronoun;
+	private $tweetReply;
+	private $whoFilterString = 'get my';
+	private $pastReplies;
+	private $twitterObj;
+	private $lastId;
+	private function rest_request($method, $endpoint, $params = null, $username = null, $password = null){
+		
+	    $url = $endpoint;
+	    if($method === 'GET')
+	      $url .= is_null($params) ? '' : '?'.http_build_query($params, '', '&');
+	    $ch  = curl_init($url);
+	    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:'));
+	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	    curl_setopt($ch, CURLOPT_TIMEOUT, '300');
+	    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+	    if($method === 'POST' && $params !== null)
+	    {
+	      if($this->isMultipart($params))
+	        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+	      else
+	        curl_setopt($ch, CURLOPT_POSTFIELDS, $this->buildHttpQueryRaw($params));
+	    }
+	    if(!empty($username) && !empty($password))
+	      curl_setopt($ch, CURLOPT_USERPWD, "{$username}:{$password}");
+
+	    $resp = EpiCurl::getInstance()->addEasyCurl($ch);
+		return json_decode($resp->data);
+		
+	    
+	}
+	private function nosweaters_api_request($method, $endpoint, $params = null, $username = null, $password = null)
+	{
+		
+	    $url = 'http://nosweaters.com/api/' . ($endpoint);
+	    return $this->rest_request($method, $url, $params, $username, $password);
+	}
+	
+	private function openamp_request($text){
+		
+		global $amplifyKey;
+		
+		$method = "GET";
+		$url = 'http://portaltnx20.openamplify.com/AmplifyWeb_v21/AmplifyThis';
+		$analysis = 'all';
+		$format = 'json';
+		
+		$params = array(
+			'apiKey' => $amplifyKey,
+			'inputText' => $text,
+			'outputFormat' => $format,
+			'analysis' => $analysis
+		);
+		
+		
+		return $this->rest_request($method, $url, $params);
+	}
+	
+	private function processTweet($tweet){
+		
+		$searchUrl = "http://nosweaters.com/gift-ideas-for-";
+		
+		//dont want retweeted tweets
+		
+		$analyses = $this->openamp_request(strtolower($tweet['text']));
+		$response = @($analyses->{'ns1:AmplifyResponse'}->AmplifyReturn);
+		//print('*************************************');
+		//print($tweet['text']);
+		//print_r($response);
+		
+		if($response){
+			//first find the who. Because of the question we ask for, this should always be in the action with 'get my'
+			$actions = @$response->Actions->TopActions;
+			$topics = @$response->Topics->TopTopics;
+			$who = $this->findWho($actions);
+			//if we cant find the who in the actions, check the topics
+			if(empty($who)){
+				$tempFilter = $this->whoFilterString;
+				$this->whoFilterString = '';
+				$who = $this->findWhoByTopic($topics);
+				if($who == null || !strpos($tweet['text'], $tempFilter . ' ' . $who['text'])){
+					//if the who we found is not next to the filter string, then it is not who they are asking for and so probably something else.
+					$who = null;
+				}
+				$this->whoFilterString = $tempFilter;
+			}
+			
+			$what = $this->findWhat($topics);
+			
+			$pronoun = $this->pronoun->getPronoun(@$who['source']);
+			
+		}
+		unset($tweet['entities'], $tweet['from_user_id'],$tweet['from_user_id_str']);
+		unset($tweet['geo'],$tweet['id'], $tweet['iso_language_code'], $tweet['metadata'], $tweet['profile_image_url']);
+        unset($tweet['source'], $tweet['to_user_id'], $tweet['to_user_id_str']);
+		
+			
+		$tweetReturn =  array(
+			'tweet' => $tweet,
+			'who' => $who,
+			'what' => $what,
+			'url' => $searchUrl . @$who['source']->slug . (!empty($what) ? '/' . @$what['source']->slug : ''),
+			'pronoun' => $pronoun
+		);
+		
+		//print_r($tweetReturn);
+		//$this->sendTweet($tweetReturn);
+		
+		return $tweetReturn;
+		
+		
+	}
+	
+	private function findWho($actions){
+		
+		$who = array();
+		if(!empty($actions)){
+			
+			foreach($actions as $action){
+
+				$actionText = @$action->Action->Name;
+				//print_r($actionText . ' ');
+				$pos = strpos($actionText, $this->whoFilterString);
+				//print $actionText . " ";
+				//print $pos === false;
+				if(!empty($actionText) && !($pos === false)){
+					$whoText = trim(str_replace('get my', '', $actionText));
+
+					if(!empty($whoText)){
+						break;
+					}
+
+				}
+
+			}
+
+			if(@$whoText){
+				$who['text'] = $whoText;
+
+				if(in_array(strtolower($whoText), $this->relationships)){
+					$who['found'] = true;
+					$who['source'] = $this->fullRelationships[array_search(strtolower($whoText), $this->relationships)];
+				}
+
+				return $who;
+
+			}
+			
+		}
+		
+		return null;
+		
+	}
+	
+	private function findWhoByTopic($topics){
+		
+		$who = array();
+		
+		foreach($topics as $topic){
+			$whoText = @$topic->Topic->Name;
+			$who['text'] = $whoText;
+			
+			if($whoText && in_array(strtolower($whoText), $this->relationships)){
+				
+				$who['found'] = true;
+				$who['source'] = $this->fullRelationships[array_search(strtolower($whoText), $this->relationships)];
+				return $who;
+			}
+		}
+		return null;
+		
+	}
+	
+	public function findWhat($topics){
+		
+		$what = array();
+		foreach($topics as $topic){
+			$whatText = @$topic->Topic->Name;
+			//print_r($whatText . ' ');
+			$what['text'] = $whatText;
+			
+			if($whatText && in_array(strtolower($whatText), $this->events)){
+				
+				$what['found'] = true;
+				$what['source'] = $this->fullEvents[array_search(strtolower($whatText), $this->events)];
+				return $what;
+			}
+		}
+		
+		return null;
+		
+	}
+	
+	private function toFile($obj, $filename){
+		ob_start();
+		//print_r( $obj );
+		$output = ob_get_clean();
+
+		file_put_contents( $filename,  $output );
+	}
+	
+	private function serializeToFile($obj, $filename){
+		file_put_contents( $filename,  json_encode($obj) );
+	}
+	
+	private function getItem($who, $what = null){
+		$params = array('relationship' => $who);
+		if($what){
+			$params['event'] = $what; 
+		}
+		$results = $this->nosweaters_api_request('GET', 'search', $params);
+		//print_r($results);
+		//die();
+		if($results){
+			if($results->results[0]->suggestedCount > 1){
+				return array('item' => $results->results[0]->SuggestionItem, 'isRandom' =>false, 'totalItems' => count($results));
+			}
+			else{
+				return array('item' => $results->results[array_rand($results->results)]->SuggestionItem, 'isRandom' =>true, 'totalItems' => count($results->results));
+			}
+			
+		}
+		return null;
+	}
+	
+	private function makeTweet($pt){
+		$tweet = null;
+		//if($pt['item']['item'] && !$pt['item']['item']['isRandom']){
+		//	
+		//	$title = $pt['item']['item']['title'];
+		//	$isThe = (strtolower(substr($title, 0, 3)) == 'the');
+		//	
+		//	$tweet = 'Hey @' . $pt['tweet']['from_user'] . ' how about ' . (!$isThe ? ' a ' : '') . $title . ' for your '  . $pt['who']['text'];
+		//	$tweet .= ' It\'s been suggested ' . $pt['item']['suggestedCount'] . ' times. Checkout ' . $pt['url'] . ' to see all ' . $pt['item']['totalItems'] . ' suggestions';
+		//}
+		//else{
+		//if(@isset($pt['item']['totalItems']) && $pt['item']['totalItems'] > 0){
+		//	$tweet = 'Well @' . $pt['tweet']['from_user'] . ' we have over ' .  $pt['item']['totalItems'] . ' gift ideas, but we need more info to offer you a great one. ';
+		//	$tweet .= ' Check out ' . $pt['url'] . ' where you can do a personalized search for your ' . $pt['who']['text'] . ' based on ' . $pt['pronoun'] . ' interests.';
+		//}
+		
+		if(isset($pt['who']['found']) && isset($pt['item']['totalItems']) && $pt['item']['totalItems'] > 1){
+			$vals = array(
+				'who' => $pt['who']['text'],
+				'twitterUser' => $pt['tweet']['from_user'],
+				'totalItems' => $pt['item']['totalItems'],
+				'url' => $pt['url'],
+				'pronoun' =>$pt['pronoun']
+			);
+			
+			$tweet = $this->tweetReply->formatSearchTweet($vals);
+		}
+		else{
+			
+			$vals = array(
+				'who' => $pt['who']['text'],
+				'twitterUser' => $pt['tweet']['from_user'],
+				'url' => 'http://nosweaters.com/questions/ask/' . $pt['who']['text'] ,
+				'pronoun' =>$pt['pronoun']
+			);
+			
+			$tweet = $this->tweetReply->formatAskTweet($vals);
+		}
+		
+ 		//}
+
+		
+		
+		return $tweet;
+	}
+	
+	private function addResults($tweets){
+		$tweetcount = 0;
+		foreach($tweets as $tweet){
+			
+			if(!in_array($tweet['from_user'], $this->pastReplies) && $tweetcount < 10){
+				
+				$pTweet = $this->processTweet($tweet);
+
+				if(isset($pTweet['who']['found'])){
+					$pTweet['item'] = $this->getItem($pTweet['who']['text'], $pTweet['what']['text']);
+					$pTweet['reply'] = $this->makeTweet($pTweet);
+				}
+
+				unset($pTweet['item']['item']);
+
+
+				if(isset($pTweet['reply']) && !in_array($pTweet['tweet']['from_user'], $this->pastReplies)){
+					$this->processedTweets[] = $pTweet;
+					//print('found tweet: ' . $tweet['text'] ."\n");
+					print("\treplying with:" . $pTweet['reply'] . "\n\n");
+					array_push($this->pastReplies, $pTweet['tweet']['from_user']);
+					try{
+						$this->sendTweet($pTweet);
+						$tweetcount++;
+					}
+					catch(Exception $e){
+						echo 'Caught exception: ',  $e->getMessage(), "\n";
+					}
+					
+				}
+				
+			}
+			
+			
+		}
+		
+	}
+	
+	private function decodeFromFile($file){
+		
+		$stuff = @file_get_contents($file);
+		
+		if(!empty($stuff)){
+			return json_decode($stuff);
+		}
+		
+		return null;
+		
+	}
+	
+	private function getPastReplies(){
+		
+		$tweeters = $this->decodeFromFile(ROOT_PATH . "../data/pastReplies.txt");
+		
+		if(!empty($tweeters)){
+			return ($tweeters);
+		}
+		
+		return array();
+		
+	}
+	
+	private function checkPastReplies(){
+		$tweets = $this->processedTweets;
+		foreach($tweets as $key => $tweet){
+			//if user is not in the tweeted array, add it
+			if(!in_array($tweet['tweet']['from_user'], $this->pastReplies)){
+				array_push($this->pastReplies, $tweet['tweet']['from_user']);
+			}
+			else{
+				//if it is remove the tweet
+				//print('unset ');
+				//print_r($tweets[$key]);
+				unset($tweets[$key]);
+			}
+		}
+		
+	}
+	
+	private function setPastReplies(){
+			
+		$this->serializeToFile($this->pastReplies, ROOT_PATH . "../data/pastReplies.txt");
+		
+	}
+	
+	private function alreadyRepliedTo($username){
+		if($this->pastReplies && in_array($username, $this->pastReplies)){
+			return true;
+		}
+		return false;
+	}
+	
+	private function getTwitterArgs($searchText){
+		$params = array(
+			'q' =>  $searchText . ' -filter:retweets', 
+			'include_entities' => true, 
+			'rpp' => '20', 
+			'result_type' => 'mixed'
+			
+		);
+		
+		
+		return $params;
+	}
+	
+	private function sendTweet($tweetObj){
+		$params = array(
+			'status' => $tweetObj['reply'],
+			'in_reply_to_status_id' => $tweetObj['tweet']['id_str'],
+			'wrap_links' => 1
+		);
+		//print_r($params);
+		//$this->twitterObj->post_statusesUpdate($params);
+	}
+	
+	
+    public function run($arguments, CLImaxController $cliController)
+    {
+		
+		global $consumerKey, $consumerSecret, $oauthToken, $oauthSecret;
+				
+		$this->fullRelationships = $this->nosweaters_api_request('GET', 'relationships');
+		$this->fullEvents = $this->nosweaters_api_request('GET', 'events');
+		$this->relationships = __::map($this->fullRelationships, function($rel){ return strtolower($rel->text);});
+		$this->events = __::map($this->fullEvents, function($ev){ return strtolower($ev->text);});
+		$this->pronoun = new Pronouning();
+		$this->tweetReply = new TweetReply();
+		$this->pastReplies = $this->getpastReplies();
+		$this->lastId = null;
+		$currentLastId = 0;
+		
+		$last = $this->decodeFromFile(ROOT_PATH . '../data/lastId.txt');
+		
+		if($last){
+			$currentLastId = $this->lastId = $last->lastId;
+		}
+		else{
+			$currentLastId = $this->lastId = null;
+		}
+
+		$this->twitterObj = $twitterObj = new EpiTwitter($consumerKey, $consumerSecret, $oauthToken, $oauthSecret);
+		
+		$searchResults = $twitterObj->get_search($this->getTwitterArgs('"what should I get my"'));
+		$tweets = $searchResults->response['results'];
+		//print_r($tweets);
+		$lastId = $tweets[0]['id_str'];
+		$this->addResults($tweets);
+		
+		
+		$searchResults = $twitterObj->get_search($this->getTwitterArgs('"gift ideas for my"'));
+		$tweets = $searchResults->response['results'];
+		if($tweets[0]['id_str'] > $currentLastId){
+			$currentLastId = $tweets[0]['id_str'];
+		}
+		$this->whoFilterString = 'for my';
+		$this->addResults($tweets);
+				
+		$this->setPastReplies();
+		
+		$this->serializeToFile(array('lastId' => $currentLastId), ROOT_PATH . ROOT_PATH . '../data/lastId.txt');
+		
+	
+		
+		$this->toFile($this->processedTweets, ROOT_PATH . '../logs/processedTweets.txt');
+		//print_r($this->processTweet($tweets[0]));
+		
+		return 0;
+    }
+
+
+}
+
+
+// WIRE UP APPLICTION
+CLImaxController::create()
+                  ->addCommand(new CLImaxSampleCommand, array("sample"))
+				  ->addCommand(new CLImaxGetQuestionsCommand, array("getquestions"))
+                  ->run($argv, $argc);

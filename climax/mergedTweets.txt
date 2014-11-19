@@ -1,0 +1,408 @@
+Array
+(
+    [0] => Array
+        (
+            [created_at] => Tue, 08 Nov 2011 06:43:50 +0000
+            [entities] => Array
+                (
+                )
+
+            [from_user] => comptoncityboy
+            [from_user_id] => 187386386
+            [from_user_id_str] => 187386386
+            [geo] => 
+            [id] => 133796854386262017
+            [id_str] => 133796854386262017
+            [iso_language_code] => en
+            [metadata] => Array
+                (
+                    [result_type] => recent
+                )
+
+            [profile_image_url] => http://a2.twimg.com/profile_images/1628470965/image_normal.jpg
+            [source] => &lt;a href=&quot;http://levelupstudio.com&quot; rel=&quot;nofollow&quot;&gt;Plume  &lt;/a&gt;
+            [text] => What should I get my mom for her birthday tomorrow? :D
+            [to_user_id] => 
+            [to_user_id_str] => 
+        )
+
+    [1] => Array
+        (
+            [created_at] => Tue, 08 Nov 2011 04:57:35 +0000
+            [entities] => Array
+                (
+                )
+
+            [from_user] => MRoseVA
+            [from_user_id] => 227527370
+            [from_user_id_str] => 227527370
+            [geo] => 
+            [id] => 133770114880380928
+            [id_str] => 133770114880380928
+            [iso_language_code] => en
+            [metadata] => Array
+                (
+                    [result_type] => recent
+                )
+
+            [profile_image_url] => http://a0.twimg.com/profile_images/1609423254/profile_normal.jpg
+            [source] => &lt;a href=&quot;http://levelupstudio.com&quot; rel=&quot;nofollow&quot;&gt;Plume  &lt;/a&gt;
+            [text] => What should I get my God daughter for christmas?
+            [to_user_id] => 
+            [to_user_id_str] => 
+        )
+
+    [2] => Array
+        (
+            [created_at] => Tue, 08 Nov 2011 04:55:16 +0000
+            [entities] => Array
+                (
+                )
+
+            [from_user] => MiSS_HuNNieB
+            [from_user_id] => 336192770
+            [from_user_id_str] => 336192770
+            [geo] => 
+            [id] => 133769533130412032
+            [id_str] => 133769533130412032
+            [iso_language_code] => en
+            [metadata] => Array
+                (
+                    [result_type] => recent
+                )
+
+            [profile_image_url] => http://a0.twimg.com/profile_images/1625018510/232iSB6i_normal
+            [source] => &lt;a href=&quot;http://twitter.com/download/android&quot; rel=&quot;nofollow&quot;&gt;Twitter for Android&lt;/a&gt;
+            [text] => What should I get my lil brother for Christmas? He loves jordans but idk what's in now. Mark used to help me out with this.
+            [to_user_id] => 
+            [to_user_id_str] => 
+        )
+
+    [3] => Array
+        (
+            [created_at] => Tue, 08 Nov 2011 04:35:17 +0000
+            [entities] => Array
+                (
+                )
+
+            [from_user] => ArmageddonSmith
+            [from_user_id] => 221468521
+            [from_user_id_str] => 221468521
+            [geo] => 
+            [id] => 133764501811109888
+            [id_str] => 133764501811109888
+            [iso_language_code] => en
+            [metadata] => Array
+                (
+                    [result_type] => recent
+                )
+
+            [profile_image_url] => http://a2.twimg.com/profile_images/1627826898/image_normal.jpg
+            [source] => &lt;a href=&quot;http://twitter.com/&quot;&gt;web&lt;/a&gt;
+            [text] => what should i get my PH.D in?
+            [to_user_id] => 
+            [to_user_id_str] => 
+        )
+
+    [4] => Array
+        (
+            [created_at] => Tue, 08 Nov 2011 04:01:39 +0000
+            [entities] => Array
+                (
+                    [hashtags] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [text] => TwitFriends
+                                    [indices] => Array
+                                        (
+                                            [0] => 75
+                                            [1] => 87
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [from_user] => FreshGrant
+            [from_user_id] => 247145401
+            [from_user_id_str] => 247145401
+            [geo] => 
+            [id] => 133756039106527232
+            [id_str] => 133756039106527232
+            [iso_language_code] => en
+            [metadata] => Array
+                (
+                    [result_type] => recent
+                )
+
+            [profile_image_url] => http://a2.twimg.com/profile_images/1611274025/NrVV5lXi_normal
+            [source] => &lt;a href=&quot;http://twitter.com/download/android&quot; rel=&quot;nofollow&quot;&gt;Twitter for Android&lt;/a&gt;
+            [text] => What should i get my daughter this yr for xmas? she 5yrs old give me ideas #TwitFriends
+            [to_user_id] => 
+            [to_user_id_str] => 
+        )
+
+    [5] => Array
+        (
+            [created_at] => Tue, 08 Nov 2011 03:43:00 +0000
+            [entities] => Array
+                (
+                )
+
+            [from_user] => ItsMee_Oliviaaa
+            [from_user_id] => 322380296
+            [from_user_id_str] => 322380296
+            [geo] => 
+            [id] => 133751345994932224
+            [id_str] => 133751345994932224
+            [iso_language_code] => en
+            [metadata] => Array
+                (
+                    [result_type] => recent
+                )
+
+            [profile_image_url] => http://a2.twimg.com/profile_images/1627977294/downloadfile-1_normal.jpeg
+            [source] => &lt;a href=&quot;http://twitter.com/&quot;&gt;web&lt;/a&gt;
+            [text] => what should i get my uncle for his birthday??
+            [to_user_id] => 
+            [to_user_id_str] => 
+        )
+
+    [6] => Array
+        (
+            [created_at] => Tue, 08 Nov 2011 02:55:21 +0000
+            [entities] => Array
+                (
+                )
+
+            [from_user] => 0_orenren
+            [from_user_id] => 82926471
+            [from_user_id_str] => 82926471
+            [geo] => 
+            [id] => 133739355972964352
+            [id_str] => 133739355972964352
+            [iso_language_code] => en
+            [metadata] => Array
+                (
+                    [result_type] => recent
+                )
+
+            [profile_image_url] => http://a2.twimg.com/profile_images/1281127498/RZMJ_normal.jpg
+            [source] => &lt;a href=&quot;http://twitter.com/#!/download/iphone&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;
+            [text] => What should I get my half sister for christmas?
+            [to_user_id] => 
+            [to_user_id_str] => 
+        )
+
+    [7] => Array
+        (
+            [created_at] => Tue, 08 Nov 2011 02:43:14 +0000
+            [entities] => Array
+                (
+                )
+
+            [from_user] => MR_MARCUS_JR24
+            [from_user_id] => 219369378
+            [from_user_id_str] => 219369378
+            [geo] => 
+            [id] => 133736307087257600
+            [id_str] => 133736307087257600
+            [iso_language_code] => en
+            [metadata] => Array
+                (
+                    [result_type] => recent
+                )
+
+            [profile_image_url] => http://a2.twimg.com/profile_images/1188161939/DOLO1_normal.jpg
+            [source] => &lt;a href=&quot;http://twitter.com/&quot;&gt;web&lt;/a&gt;
+            [text] => Wondering what should I get my momma for the Holidays I want to take her on a curises
+            [to_user_id] => 
+            [to_user_id_str] => 
+        )
+
+    [8] => Array
+        (
+            [created_at] => Tue, 08 Nov 2011 02:34:35 +0000
+            [entities] => Array
+                (
+                )
+
+            [from_user] => Ashhhxbashh
+            [from_user_id] => 187437296
+            [from_user_id_str] => 187437296
+            [geo] => 
+            [id] => 133734127852724224
+            [id_str] => 133734127852724224
+            [iso_language_code] => en
+            [metadata] => Array
+                (
+                    [result_type] => recent
+                )
+
+            [profile_image_url] => http://a0.twimg.com/profile_images/1579499890/ru1ALBKB_normal
+            [source] => &lt;a href=&quot;http://mobile.twitter.com&quot; rel=&quot;nofollow&quot;&gt;Mobile Web&lt;/a&gt;
+            [text] => What should I get my babe for christmas?
+            [to_user_id] => 
+            [to_user_id_str] => 
+        )
+
+    [9] => Array
+        (
+            [created_at] => Tue, 08 Nov 2011 02:23:48 +0000
+            [entities] => Array
+                (
+                )
+
+            [from_user] => dreww_taylor
+            [from_user_id] => 333778387
+            [from_user_id_str] => 333778387
+            [geo] => 
+            [id] => 133731416407154689
+            [id_str] => 133731416407154689
+            [iso_language_code] => en
+            [metadata] => Array
+                (
+                    [result_type] => recent
+                )
+
+            [profile_image_url] => http://a1.twimg.com/profile_images/1610046396/de8pqxwp_normal
+            [source] => &lt;a href=&quot;http://www.tweetcaster.com&quot; rel=&quot;nofollow&quot;&gt;TweetCaster for Android&lt;/a&gt;
+            [text] => What should I get my mama for ha birthday ??? Hmmm ..
+            [to_user_id] => 
+            [to_user_id_str] => 
+        )
+
+    [10] => Array
+        (
+            [created_at] => Tue, 08 Nov 2011 01:48:55 +0000
+            [entities] => Array
+                (
+                )
+
+            [from_user] => SNoetzel
+            [from_user_id] => 56897235
+            [from_user_id_str] => 56897235
+            [geo] => 
+            [id] => 133722636046966785
+            [id_str] => 133722636046966785
+            [iso_language_code] => en
+            [metadata] => Array
+                (
+                    [result_type] => recent
+                )
+
+            [profile_image_url] => http://a0.twimg.com/profile_images/1615021967/Purple_Glee_Day_____normal.png
+            [source] => &lt;a href=&quot;http://twitter.com/&quot;&gt;web&lt;/a&gt;
+            [text] => What should I get my mom for her birthday.... it's tomorrow  :)
+            [to_user_id] => 
+            [to_user_id_str] => 
+        )
+
+    [11] => Array
+        (
+            [created_at] => Tue, 08 Nov 2011 01:47:02 +0000
+            [entities] => Array
+                (
+                )
+
+            [from_user] => iRepLoyalty
+            [from_user_id] => 96666929
+            [from_user_id_str] => 96666929
+            [geo] => 
+            [id] => 133722162325491713
+            [id_str] => 133722162325491713
+            [iso_language_code] => en
+            [metadata] => Array
+                (
+                    [result_type] => recent
+                )
+
+            [profile_image_url] => http://a1.twimg.com/profile_images/1622029088/IMAG0448_normal.jpg
+            [source] => &lt;a href=&quot;http://www.echofon.com/&quot; rel=&quot;nofollow&quot;&gt;Echofon&lt;/a&gt;
+            [text] => Alright like anything or what an what should I get my bby girl
+            [to_user_id] => 
+            [to_user_id_str] => 
+        )
+
+    [12] => Array
+        (
+            [created_at] => Tue, 08 Nov 2011 01:33:26 +0000
+            [entities] => Array
+                (
+                )
+
+            [from_user] => MandaDotNET
+            [from_user_id] => 145874704
+            [from_user_id_str] => 145874704
+            [geo] => 
+            [id] => 133718740520009728
+            [id_str] => 133718740520009728
+            [iso_language_code] => en
+            [metadata] => Array
+                (
+                    [result_type] => recent
+                )
+
+            [profile_image_url] => http://a0.twimg.com/profile_images/1622653015/profile_normal.jpg
+            [source] => &lt;a href=&quot;http://twitter.com/&quot;&gt;web&lt;/a&gt;
+            [text] => So Christmas is coming up soon. What should I get my 7y/o brother, 2y/o sister, 26y/o brother, and my 23y/o boyfriend. Any thoughts?
+            [to_user_id] => 
+            [to_user_id_str] => 
+        )
+
+    [13] => Array
+        (
+            [created_at] => Tue, 08 Nov 2011 01:30:41 +0000
+            [entities] => Array
+                (
+                )
+
+            [from_user] => ajs909
+            [from_user_id] => 40404001
+            [from_user_id_str] => 40404001
+            [geo] => 
+            [id] => 133718046064906241
+            [id_str] => 133718046064906241
+            [iso_language_code] => en
+            [metadata] => Array
+                (
+                    [result_type] => recent
+                )
+
+            [profile_image_url] => http://a1.twimg.com/profile_images/1554990526/vert1_normal.jpg
+            [source] => &lt;a href=&quot;http://seesmic.com/&quot; rel=&quot;nofollow&quot;&gt;Seesmic&lt;/a&gt;
+            [text] => What should I get my mom for Christmas. Ima go all out. She raised 3 of us, deserves the best!
+            [to_user_id] => 
+            [to_user_id_str] => 
+        )
+
+    [14] => Array
+        (
+            [created_at] => Tue, 08 Nov 2011 01:20:32 +0000
+            [entities] => Array
+                (
+                )
+
+            [from_user] => speakMG
+            [from_user_id] => 224826894
+            [from_user_id_str] => 224826894
+            [geo] => 
+            [id] => 133715494044835840
+            [id_str] => 133715494044835840
+            [iso_language_code] => en
+            [metadata] => Array
+                (
+                    [result_type] => recent
+                )
+
+            [profile_image_url] => http://a2.twimg.com/profile_images/1622579850/111104-162500_normal.JPG
+            [source] => &lt;a href=&quot;http://twitter.com/&quot;&gt;web&lt;/a&gt;
+            [text] => what should i get my gayE bestfriend for his burfday?
+            [to_user_id] => 
+            [to_user_id_str] => 
+        )
+
+)

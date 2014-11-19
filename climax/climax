@@ -1,0 +1,84 @@
+#!/usr/bin/env php
+<?php
+/* vim: set syntax=php expandtab tabstop=4 shiftwidth=4: */
+
+/**
+ * This is a climax application. It is used for development of climax.
+ */
+require_once 'CLImax.php';
+
+// DEFINE COMMANDS
+class CLImaxTest extends CLIMax_BaseCommand
+{
+    public function run($arguments, CLImaxController $cliController)
+    {
+        passthru("phpunit . 2>&1", $result);
+        return $result;
+    }
+    public function getDescription($aliases, $argLinker) { return 'Run all CLImax unit tests.'; }
+}
+
+class CLImaxSpec extends CLIMax_BaseCommand
+{
+    public function run($arguments, CLImaxController $cliController)
+    {
+        passthru("phpunit --testdox . 2>&1", $result);
+        return $result;
+    }
+    public function getDescription($aliases, $argLinker) { return 'Print out the spec document.'; }
+}
+
+class CLImaxScaffold extends CLIMax_BaseCommand
+{
+    public function run($arguments, CLImaxController $cliController)
+    {
+        if (count($arguments) > 1) throw new CLImaxCommand_ArugumentException("scaffold command requires exactly 1 argument: name of file to create.");
+        if (count($arguments) === 0)
+        {
+            $fileName = 'myapp';
+        }
+        else
+        {
+            $fileName = $arguments[0];
+        }
+
+        $filePath = "./{$fileName}";
+        if (file_exists($filePath)) throw new Exception("Specified file {$filePath} already exists.");
+        file_put_contents($filePath, '#!/usr/bin/env php
+<?php
+/* vim: set syntax=php expandtab tabstop=4 shiftwidth=4: */
+/**
+ * Created by CLImax http://github.com/apinstein/climax
+ * ' . date('r') . '
+ */
+
+require_once "CLImax.php";
+class CLImaxSampleCommand extends CLIMax_BaseCommand
+{
+    public function run($arguments, CLImaxController $cliController)
+    {
+        // do something interesting
+        print "Sample...\n";
+        // or throw new Exception("error", $returnCode);
+        return 0;
+    }
+}
+
+// WIRE UP APPLICTION
+CLImaxController::create()
+                  ->addCommand(new CLImaxSampleCommand, array("sample"))
+                  ->run($argv, $argc);
+');
+        chmod($filePath, 0777);
+        print "Wrote CLImax scaffold app at {$filePath}\n";
+        return 0;
+    }
+    public function getDescription($aliases, $argLinker) { return 'Create a new climax project. Accepts a single argument for the name of the new project; defaults to myapp.'; }
+}
+
+// WIRE UP APPLICTION
+CLImaxController::create()
+                  ->addCommand(new CLImaxTest, array('test'))
+                  ->addCommand(new CLImaxSpec, array('spec'))
+                  ->addCommand(new CLImaxScaffold, array('scaffold'))
+                  ->run($argv, $argc);
